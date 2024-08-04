@@ -1,0 +1,2 @@
+class Book < Produkt
+end
