@@ -2,6 +2,12 @@
 require_relative "lib/produkt"
 require_relative "lib/book"
 require_relative "lib/movie"
+produkts = []
 
-film1 = Movie.new(price: 290, amount: 9)
-puts "у нас есть #{film1.amount} фильмов по #{film1.price} грн"
+produkts << Movie.new(price: 290, amount: 9, name: "titanik", year: "1999", autor: "спилберг")
+produkts << Movie.new(price: 350, amount: 12, name: "ronin", year: "2007", autor: "muraiami")
+produkts << Book.new(price: 570, amount: 2, name: "вий", autor: "гоголь", janre: "ужас")
+
+produkts.each_with_index do |prod, indx|
+  puts "#{indx + 1}. #{prod}"
+end
