@@ -1,4 +1,4 @@
-class Produkt
+class Product
   attr_reader :price, :amount
 
   # Конструктор товара записывает, сколько стоит товар и сколько осталось

@@ -1,15 +1,17 @@
-# надо вызывать в последовательности иерархии
-require_relative "lib/produkt"
+require_relative "lib/product"
 require_relative "lib/book"
 require_relative "lib/movie"
-#_______________способ когда данные лежат в отдельных фацлах , используем сеттер__________
-movie = Movie.from_file(__dir__ + "/data/films/01.txt")
-book = Book.from_file(__dir__ + "/data/books/01.txt")
-puts movie
-puts book
-# Пытаемся вызвать метод from_file у класса Product и ловим ошибку
-begin
-  Produkt.from_file(__dir__ + "/data/films/01.txt")
-rescue NotImplementedError
-  puts "метод from_file не реализован на классе Produkt "
+require_relative "lib/product_collection"
+# Создаем коллекцию продуктов, передавая методу класса from_dir путь к папке
+# с подпапками films и books. ProductCollection сам знает, как там внутри лежат
+# эти файлы и сам разбереться, как их оттуда считать.
+
+collection = ProductCollection.from_dir(__dir__ + "/data")
+# Сортируем продукты по возрастанию цены с помощью метода sort! экземпляра
+# класса ProductCollection
+collection.sort!(by: :price, order: :asc)
+# Получаем массив продуктов методом to_a и выводим каждый на экран, передавая
+# его методу puts в качестве аргумента.
+collection.to_a.each do |products|
+  puts products
 end
