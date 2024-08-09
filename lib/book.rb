@@ -3,11 +3,12 @@ class Book < Produkt
 
   def initialize(params)
     super
-
+    @name = params[:name]
+    @autor = params[:autor]
     @janre = params[:janre]
   end
 
   def to_s
-    "в жанре #{@janre} книга #{super}"
+    "книга #{@name} автор #{@autor}  в жанре #{@janre} #{super}"
   end
 end
