@@ -1,4 +1,4 @@
-class Movie < Produkt
+class Movie < Product
   attr_accessor :year, :title, :director
 
   def initialize(params)

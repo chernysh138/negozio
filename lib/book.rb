@@ -1,4 +1,4 @@
-class Book < Produkt
+class Book < Product
   attr_accessor :janre, :name, :autor
 
   def initialize(params)
